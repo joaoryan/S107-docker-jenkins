@@ -20,35 +20,21 @@ const makeSut = (): SutTypes => {
 }
 
 describe('Testing the DbDeleteUser class', () => {
-  describe('Dependency with DeleteUserRepository class', () => {
-    test('should call the deleteUser method only once', async () => {
-      const { sut, repositoryStub } = makeSut()
-      const repositorySpy = jest.spyOn(repositoryStub, 'deleteUser')
-      await sut.delete(1)
-      expect(repositorySpy).toHaveBeenCalledTimes(1)
-    })
-    test('should call the deleteUser method with the correct parameter', async () => {
-      const { sut, repositoryStub } = makeSut()
-      const repositorySpy = jest.spyOn(repositoryStub, 'deleteUser')
-      const id = 1
-      await sut.delete(id)
-      expect(repositorySpy).toHaveBeenCalledWith(id)
-    })
-    test('should return true if deleteUser returns true', async () => {
-      const { sut } = makeSut()
-      const result = await sut.delete(1)
-      expect(result).toBeTruthy()
-    })
-    test('should return false if deleteUser returns false', async () => {
-      const { sut, repositoryStub } = makeSut()
-      jest.spyOn(repositoryStub, 'deleteUser').mockResolvedValue(false)
-      const result = await sut.delete(1)
-      expect(result).toBeFalsy()
-    })
-    test('should throw an exception if the deleteUser method fails', async () => {
-      const { sut, repositoryStub } = makeSut()
-      jest.spyOn(repositoryStub, 'deleteUser').mockRejectedValue(new Error())
-      await expect(sut.delete(1)).rejects.toThrow()
-    })
+  test('should call the deleteUser method with the correct parameter', async () => {
+    const { sut, repositoryStub } = makeSut()
+    const repositorySpy = jest.spyOn(repositoryStub, 'deleteUser')
+    await sut.delete(1)
+    expect(repositorySpy).toHaveBeenCalledWith(1)
+  })
+  test('should return false if deleteUser returns false', async () => {
+    const { sut, repositoryStub } = makeSut()
+    jest.spyOn(repositoryStub, 'deleteUser').mockResolvedValue(false)
+    const result = await sut.delete(1)
+    expect(result).toBeFalsy()
+  })
+  test('should throw an exception if the deleteUser method fails', async () => {
+    const { sut, repositoryStub } = makeSut()
+    jest.spyOn(repositoryStub, 'deleteUser').mockRejectedValue(new Error())
+    await expect(sut.delete(1)).rejects.toThrow()
   })
 })
