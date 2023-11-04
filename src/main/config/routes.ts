@@ -1,7 +1,6 @@
 /* eslint-disable node/no-path-concat */
 /* eslint-disable no-unused-expressions */
 import { Express, Router } from 'express'
-import { Pool } from 'mysql'
 import { readdirSync } from 'fs'
 
 export default (app: Express): void => {
