@@ -1,14 +1,21 @@
-version: '3'
-
+version: '3.8'
 services:
-  app:
-    container_name: setup-nodejs
-    build:
-      context: .
-      dockerfile: dockerfile
-    volumes:
-      - ./:/src/main/server/
-    environment:
-      - PORT=3000
+  jenkins_nodejs:
+    image: jenkins/jenkins:lts
+    container_name: jenkins
+    privileged: true
+    user: root
     ports:
-      - 3000:3000
+      - 8080:8080
+      - 50000:50000
+    volumes:
+      - ./jenkins_compose/jenkins_configuration:/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - JENKINS_JAVA_OPTS=-Dhudson.footerURL=http://localhost:8080
+      - JAVA_OPTS=-Duser.timezone=America/New_York
+    networks:
+      - jenkins-net
+      
+networks:
+  jenkins-net:
