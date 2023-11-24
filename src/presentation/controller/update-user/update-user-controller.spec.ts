@@ -59,7 +59,7 @@ describe('Testing the UpdateUserController class', () => {
       const validateSpy = jest.spyOn(bodyValidationStub, 'validate')
       const httpRequest = mockUpdateUserRequest(1)
       await sut.handle(httpRequest)
-      expect(validateSpy).toHaveBeenCalledWith(httpRequest.body.user)
+      expect(validateSpy).toHaveBeenCalledWith(httpRequest.body)
     })
   })
 
@@ -69,7 +69,7 @@ describe('Testing the UpdateUserController class', () => {
       const dbUpdateUserSpy = jest.spyOn(dbUpdateUserStub, 'update')
       const httpRequest = mockUpdateUserRequest(1)
       await sut.handle(httpRequest)
-      expect(dbUpdateUserSpy).toHaveBeenCalledWith(httpRequest.params.id, httpRequest.body.user)
+      expect(dbUpdateUserSpy).toHaveBeenCalledWith(httpRequest.params.id, httpRequest.body)
     })
     test('should return 200 if the Update method returns true ', async () => {
       const { sut } = makeSut()

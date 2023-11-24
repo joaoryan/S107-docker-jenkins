@@ -17,14 +17,14 @@ export class UpdateUserController implements Controller {
 
   async handle(httpRequest: HttpRequest<UpdateUser.Request>): Promise<HttpResponse> {
     try {
-      if (!httpRequest.body.user) return badRequest(new MissingParamError('user'))
+      if (!httpRequest.body) return badRequest(new MissingParamError('user'))
       if (!httpRequest.params.id) return badRequest(new MissingParamError('id'))
       const validationParamsError = this.paramsValidation.validate(httpRequest.params)
-      const validationBodyError = this.bodyValidation.validate(httpRequest.body.user)
+      const validationBodyError = this.bodyValidation.validate(httpRequest.body)
       if (validationParamsError) return badRequest(validationParamsError)
       if (validationBodyError) return badRequest(validationBodyError)
 
-      const result = await this.dbUpdateUser.update(httpRequest.params.id, httpRequest.body.user)
+      const result = await this.dbUpdateUser.update(httpRequest.params.id, httpRequest.body)
       if (!result) return badRequest(new NoRowsAffected(httpRequest.params.id))
       return ok({})
     } catch (error) {

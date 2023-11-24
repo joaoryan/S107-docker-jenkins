@@ -7,7 +7,7 @@ export interface UpdateUser {
 // eslint-disable-next-line no-redeclare
 export namespace UpdateUser {
   export type Request = {
-    body: { user?: UpdateUserModel }
+    body: UpdateUserModel
     params: { id?: number }
   }
 }

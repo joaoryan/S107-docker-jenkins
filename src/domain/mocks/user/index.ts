@@ -58,7 +58,7 @@ export const mockUserModel = (): UserModel => (
 export const mockUpdateUserRequest = (updateId: number): UpdateUser.Request => (
   {
     body: {
-      user: { id: updateId, ...mockUpdateUser() }
+      id: updateId, ...mockUpdateUser()
     },
     params: {
       id: 1
