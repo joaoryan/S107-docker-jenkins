@@ -4,7 +4,12 @@ import { RequiredFieldValidaton } from '../../../../presentation/helpers/validat
 
 export const makeAddUserValidation = (): ValidationComposite => {
   const validations: Validation[] = []
-  const fields = ['idUser', 'typeUser', 'dataUpdate', 'appUpdate', 'serialNumber', 'softwareVersion', 'powerVersion']
+  const fields = [
+    'name',
+    'matricula',
+    'materia',
+    'nota'
+  ]
   for (const field of fields) {
     validations.push(new RequiredFieldValidaton(field))
   }
