@@ -2,34 +2,56 @@ pipeline {
     agent any
 
     environment {
-        NODE_VERSION = '18.16.0'  // Especifique a versão desejada do Node.js
-        TYPESCRIPT_VERSION = '^4.4.4'  // Especifique a versão desejada do TypeScript
+        NODE_VERSION = '18.16.0'
+        TYPESCRIPT_VERSION = '^4.4.4'
+        EMAIL = 'testes107email@gmail.com'
     }
 
     stages {
+        stage('Set Environment Variable') {
+            steps {
+                script {
+                    env.EMAIL = EMAIL
+                }
+            }
+        }
+
         stage('Build') {
             steps {
                 echo 'Building...'
-                sh "node --version"
-                sh "npm --version"
-                sh '''
-                    cd Aula-GitHub-Actions
-                    npm install
-                    npm run build
-                    cd ${WORKSPACE}
-                    ls
-                '''
-                archiveArtifacts 'Aula-GitHub-Actions/target/'
+                dir('Aula-GitHub-Actions') {
+                    sh "node --version"
+                    sh "npm --version"
+                    sh 'npm install'
+                    sh 'npm run build'
+                }
+                archiveArtifacts 'src/target/*'
             }
         }
 
         stage('Test') {
             steps {
                 echo 'Testing...'
-                sh '''
-                    cd Aula-GitHub-Actions
-                    npm run test
-                '''
+                dir('Aula-GitHub-Actions') {
+                    sh "node --version"
+                    sh "npm --version"
+                    sh 'npm i --legacy-peer-deps'
+                    sh 'npm run test'
+                }
+                archiveArtifacts 'src/report.html'
+            }
+        }
+
+        stage('Notifications') {
+            steps {
+                echo 'Sending notifications...'
+                emailext (
+                    subject: 'Pipeline Executed!',
+                    body: 'Build completed. Please check the status.',
+                    to: EMAIL,
+                    from: 'testes107email@gmail.com',
+                    mimeType: 'text/html'
+                )
             }
         }
     }
