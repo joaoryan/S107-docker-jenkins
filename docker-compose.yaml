@@ -1,14 +1,34 @@
 version: '3'
 
 services:
-  app:
-    container_name: setup-nodejs
-    build:
-      context: .
-      dockerfile: dockerfile
-    volumes:
-      - ./:/src/main/server/
-    environment:
-      - PORT=3000
+  jenkins_nodejs:
+    image: joaoryan/projeto-s107:v1.0.0
+    container_name: jenkins-nodejs
+    privileged: true
+    user: root
     ports:
-      - 3000:3000
+      - "8080:80"
+    volumes:
+      - ./jenkins_compose/jenkins_configuration:/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock
+    
+  mongo:
+    image: mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: joao
+
+  mongo-express:
+    image: mongo-express
+    restart: always
+    ports:
+      - 8081:8081
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: root
+      ME_CONFIG_MONGODB_ADMINPASSWORD: joao
+      ME_CONFIG_MONGODB_SERVER: mongodb
+      ME_CONFIG_MONGODB_URL: mongodb://root:example@mongo:27017/
+
+  
+      
