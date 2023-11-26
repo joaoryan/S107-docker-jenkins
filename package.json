@@ -23,14 +23,11 @@
     "jest": "^27.5.1",
     "rimraf": "^3.0.2",
     "ts-jest": "^27.0.7",
-    "typescript": "^4.4.4",
-    "@types/mongodb": "^4.0.7"
+    "typescript": "^4.4.4"
   },
   "dependencies": {
     "express": "^4.17.2",
-    "fs": "^0.0.1-security",
-    "validator": "^13.7.0",
-    "mongo-round": "^1.0.0",
-    "mongodb": "^4.1.1"
+    "mongoose": "^8.0.1",
+    "validator": "^13.7.0"
   }
 }

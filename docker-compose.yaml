@@ -7,18 +7,22 @@ services:
     privileged: true
     user: root
     ports:
-      - "8080:80"
+      - 8080:8080
+      - 50000:50000
     volumes:
       - ./jenkins_compose/jenkins_configuration:/var/jenkins_home
       - /var/run/docker.sock:/var/run/docker.sock
     
-  mongo:
+  mongodb:
     image: mongo
-    restart: always
+    ports:
+      - 27017:27017
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
-      MONGO_INITDB_ROOT_PASSWORD: joao
-
+      MONGO_INITDB_ROOT_PASSWORD: root
+    volumes:
+      - ./mongodb:/data/db
+    
   mongo-express:
     image: mongo-express
     restart: always
@@ -26,9 +30,8 @@ services:
       - 8081:8081
     environment:
       ME_CONFIG_MONGODB_ADMINUSERNAME: root
-      ME_CONFIG_MONGODB_ADMINPASSWORD: joao
+      ME_CONFIG_MONGODB_ADMINPASSWORD: root
       ME_CONFIG_MONGODB_SERVER: mongodb
-      ME_CONFIG_MONGODB_URL: mongodb://root:example@mongo:27017/
 
   
       
