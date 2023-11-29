@@ -19,26 +19,22 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building...'
-                dir('Aula-GitHub-Actions') {
-                    sh "node --version"
-                    sh "npm --version"
-                    sh 'npm install'
-                    sh 'npm run build'
-                }
-                archiveArtifacts 'src/target/*'
+                sh "node --version"
+                sh "npm --version"
+                sh 'npm install'
+                sh 'npm run build'
             }
         }
 
         stage('Test') {
             steps {
                 echo 'Testing...'
-                dir('Aula-GitHub-Actions') {
-                    sh "node --version"
-                    sh "npm --version"
-                    sh 'npm i --legacy-peer-deps'
-                    sh 'npm run test'
-                }
-                archiveArtifacts 'src/report.html'
+                
+                sh "node --version"
+                sh "npm --version"
+                sh 'npm i --legacy-peer-deps'
+                sh 'npm run test'
+                
             }
         }
 
