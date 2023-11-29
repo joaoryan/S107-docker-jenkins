@@ -45,8 +45,8 @@ pipeline {
         stage('Notifications') {
             steps {
                 echo 'Sending notifications...'
-                sh npm install
-                sh node scripts/send-email.js
+                sh 'npm install'
+                sh 'node scripts/send-email.js'
             }
         }
     }
