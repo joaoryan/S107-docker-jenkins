@@ -45,13 +45,8 @@ pipeline {
         stage('Notifications') {
             steps {
                 echo 'Sending notifications...'
-                emailext (
-                    subject: 'Pipeline Executed!',
-                    body: 'Build completed. Please check the status.',
-                    to: EMAIL,
-                    from: 'testes107email@gmail.com',
-                    mimeType: 'text/html'
-                )
+                sh npm install
+                sh node script/send-email.js
             }
         }
     }

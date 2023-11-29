@@ -2,28 +2,28 @@ import mongoose, { Schema } from 'mongoose';
 
 const taskSchema = new Schema({
     id: {
-        type: number,
+        type: Number,
         required: false,
     },
-    name : {
+    name: {
         type: String,
         required: true
     },
-    matricula : {
-        type: number,
+    matricula: {
+        type: Number,
         required: true
     },
-    materia : {
+    materia: {
         type: String,
         required: true
     },
-    nota : {
-        type: number,
+    nota: {
+        type: Number,
         required: true
     }
-    
-    
-},{versionKey: false});
+
+
+}, { versionKey: false });
 
 export default mongoose.model('Task', taskSchema);
 
