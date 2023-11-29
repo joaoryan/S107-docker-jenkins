@@ -9,9 +9,10 @@ RUN apt-get update \
     && apt-get install -y curl \
     && curl -sL https://deb.nodesource.com/setup_18.x | bash - \
     && apt-get install -y nodejs \
-    && apt-get install -y build-essential
+    && apt-get install -y build-essential \
+    && npm install -g npm
 
-# Instalação de plugins do Jenkins (exemplo com dois plugins)
+# Instalação de plugins do Jenkins
 RUN jenkins-plugin-cli --plugins
 
 # Volta ao usuário Jenkins
