@@ -1,0 +1,22 @@
+Started by user [8mha:////4DJH8vaZgUbBiDKcCyGAZp8X3k/yAQpYat0yU+B0HnR/AAAAlh+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAyWEgYu/dLi1CL9ovz8EgDKVWzSvwAAAA==[0mroot
+Started by user [8mha:////4DJH8vaZgUbBiDKcCyGAZp8X3k/yAQpYat0yU+B0HnR/AAAAlh+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAyWEgYu/dLi1CL9ovz8EgDKVWzSvwAAAA==[0mroot
+Started by user [8mha:////4DJH8vaZgUbBiDKcCyGAZp8X3k/yAQpYat0yU+B0HnR/AAAAlh+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAyWEgYu/dLi1CL9ovz8EgDKVWzSvwAAAA==[0mroot
+Running as SYSTEM
+Building in workspace /var/jenkins_home/workspace/pipeline2
+The recommended git tool is: NONE
+using credential PAT_jenkins
+ > git rev-parse --resolve-git-dir /var/jenkins_home/workspace/pipeline2/.git # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/joaoryan/Projeto2-S107.git # timeout=10
+Fetching upstream changes from https://github.com/joaoryan/Projeto2-S107.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.39.2'
+using GIT_ASKPASS to set credentials PAT_jenkins
+ > git fetch --tags --force --progress -- https://github.com/joaoryan/Projeto2-S107.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse refs/remotes/origin/main^{commit} # timeout=10
+Checking out Revision 4cb4e85c59b92d5cd8acfe9febbc76c714bad425 (refs/remotes/origin/main)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 4cb4e85c59b92d5cd8acfe9febbc76c714bad425 # timeout=10
+Commit message: "conflito"
+ > git rev-list --no-walk 4cb4e85c59b92d5cd8acfe9febbc76c714bad425 # timeout=10
+Finished: SUCCESS

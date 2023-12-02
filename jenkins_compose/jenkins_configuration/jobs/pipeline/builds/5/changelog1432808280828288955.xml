@@ -1,0 +1,10 @@
+commit 30c8a3cf404c804bedba2795dcfd7139811e930c
+tree 29e1f6af1693aaf17157ec782edda5815416a215
+parent dc4cc683491415407e476f0649df61836638e031
+author João Ryan Santos <sjoaoryan@gmail.com> 2023-11-28 21:16:43 -0300
+committer João Ryan Santos <sjoaoryan@gmail.com> 2023-11-28 21:16:43 -0300
+
+    ajuste notificação email
+
+
+:100644 100644 835d17f3719cdbb23e2b71f86dd5605b01286567 f92190c6ad3d04d4bcefacb4ad6ad1932e8cdb62 M	Jenkinsfile
