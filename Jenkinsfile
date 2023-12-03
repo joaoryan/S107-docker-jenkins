@@ -23,7 +23,15 @@ pipeline {
                 sh "npm --version"
                 sh 'npm install'
                 sh 'npm run build'
-                arquiveArtifacts '/dist**'
+               
+            }
+        
+        }
+        
+        stage('Archive Artifacts') {
+            steps {
+                echo 'Archiving artifacts...'
+                archiveArtifacts 'dist/**'
             }
         }
 
