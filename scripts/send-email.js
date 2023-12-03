@@ -13,7 +13,7 @@ const transporter = nodemailer.createTransport({
 // Configurar o e-mail
 const mailOptions = {
     from: 'sjoaoryan@gmail.com',
-    to: 'joaoryangame@gmail.com',
+    to: 'testes107email@gmail.com',
     subject: 'PIPELINE',
     text: 'A pipeline está em execução'
 };

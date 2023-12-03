@@ -2,7 +2,7 @@
 - O projeto consiste em um sistema de CI/CD com Jenkins, para realizar etapas de um pipeline 
  
 ## Equipe
-- Gabriel Guerzoni
+- Gabriel Guerzoni 235
 - Joao Ryan 239
 
 ## Tecnologias
