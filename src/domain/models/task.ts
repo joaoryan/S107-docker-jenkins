@@ -25,5 +25,5 @@ const taskSchema = new Schema({
 
 }, { versionKey: false });
 
-export default mongoose.model('Task', taskSchema);
+export default mongoose.model('user', taskSchema);
 

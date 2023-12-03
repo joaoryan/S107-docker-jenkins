@@ -5,19 +5,15 @@
   <fileName>Credential id=PAT_jenkins name=joaoryan/****** (PAT_jenkins)</fileName>
   <usages>
     <entry>
-      <string>pipeline2</string>
-      <ranges>1-5</ranges>
-    </entry>
-    <entry>
       <string>pipeline</string>
-      <ranges>4-6</ranges>
+      <ranges>4-6,8</ranges>
     </entry>
   </usages>
   <facets>
     <com.cloudbees.plugins.credentials.fingerprints.ItemCredentialsFingerprintFacet plugin="credentials@1309.v8835d63eb_d8a_">
-      <timestamp>1701221641701</timestamp>
+      <timestamp>1701524062190</timestamp>
       <itemFullName>pipeline</itemFullName>
-      <timestamp0>1701217021124</timestamp0>
+      <timestamp0>1701523916574</timestamp0>
     </com.cloudbees.plugins.credentials.fingerprints.ItemCredentialsFingerprintFacet>
   </facets>
 </fingerprint>

@@ -3,33 +3,29 @@ import { AddUserRepository } from '../../data/protocols/db/user/add-user-reposit
 import { UserModel, UpdateUserModel, CreateUserOvenModel } from '../../domain/models/user'
 import { UpdateUserRepository } from '../../data/protocols/db/user/update-user-repository'
 import { DeleteUserRepository } from '../../data/protocols/db/user/delete-user-repository'
-import Task from '../../domain/models/task.js'
+import user from '../../domain/models/task.js'
 
 export class UserMongoRepository implements LoadUserByIdRepository, AddUserRepository, UpdateUserRepository, DeleteUserRepository {
 
   async loadUserById(id: number): Promise<UserModel[]> {
-    const tasks = await Task.find();
-    return tasks
+    const response = await user.find();
+    return response
   }
 
-  async addUser(userType: CreateUserOvenModel): Promise<UserModel> {
-    const newTask = await Task.create(userType);
-    return newTask
+  async addUser(userData: CreateUserOvenModel): Promise<UserModel> {
+    const newUser = await user.create(userData);
+    return newUser
   }
 
-  async updateUser(id: number, user: UpdateUserModel): Promise<boolean> {
-    await Task.findByIdAndUpdate({ "_id": id },
-      {
-        "name": user.name,
-        "matricula": user.matricula,
-        "materia": user.materia,
-        "nota": user.nota
-      });
+  async updateUser(id: number, userData: UpdateUserModel): Promise<boolean> {
+    const response = await user.findByIdAndUpdate({ "_id": id }, userData);
+    console.log(response)
     return true
   }
 
   async deleteUser(id: number): Promise<boolean> {
-    await Task.findByIdAndDelete(id);
+    const response = await user.findByIdAndDelete(id);
+    console.log(response)
     return true
   }
 }

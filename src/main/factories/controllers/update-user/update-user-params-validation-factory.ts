@@ -8,7 +8,6 @@ export const makeUpdateUserParamsValidation = (): ValidationComposite => {
   const fields = ['id']
   for (const field of fields) {
     validations.push(new RequiredFieldValidaton(field))
-    validations.push(new NumericFieldValidation(field))
   }
   return new ValidationComposite(validations)
 }
