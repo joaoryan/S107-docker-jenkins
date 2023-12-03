@@ -7,7 +7,7 @@ import user from '../../domain/models/task.js'
 
 export class UserMongoRepository implements LoadUserByIdRepository, AddUserRepository, UpdateUserRepository, DeleteUserRepository {
 
-  async loadUserById(id: number): Promise<UserModel[]> {
+  async loadUser(): Promise<UserModel[]> {
     const response = await user.find();
     return response
   }
@@ -17,15 +17,15 @@ export class UserMongoRepository implements LoadUserByIdRepository, AddUserRepos
     return newUser
   }
 
-  async updateUser(id: number, userData: UpdateUserModel): Promise<boolean> {
+  async updateUser(id: number | string, userData: UpdateUserModel): Promise<boolean> {
     const response = await user.findByIdAndUpdate({ "_id": id }, userData);
-    console.log(response)
+    if (response === null) return false
     return true
   }
 
-  async deleteUser(id: number): Promise<boolean> {
+  async deleteUser(id: number | string): Promise<boolean> {
     const response = await user.findByIdAndDelete(id);
-    console.log(response)
+    if (response === null) return false
     return true
   }
 }

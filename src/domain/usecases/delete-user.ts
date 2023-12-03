@@ -1,10 +1,10 @@
 export interface DeleteUser {
-  delete(id: number): Promise<boolean>
+  delete(id: number | string): Promise<boolean>
 }
 
 // eslint-disable-next-line no-redeclare
 export namespace DeleteUser {
   export type Request = {
-    params: { id?: number }
+    params: { id?: number | string }
   }
 }

@@ -1,3 +1,3 @@
 export interface DeleteUserRepository {
-  deleteUser(id: number): Promise<boolean>
+  deleteUser(id: number | string): Promise<boolean>
 }

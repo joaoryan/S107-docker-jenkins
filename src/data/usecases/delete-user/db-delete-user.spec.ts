@@ -3,7 +3,7 @@ import { DeleteUserRepository } from './../../protocols/db/user/delete-user-repo
 import { DbDeleteUser } from './db-delete-user'
 
 class RepositoryStub implements DeleteUserRepository {
-  async deleteUser(id: number): Promise<boolean> {
+  async deleteUser(id: number | string): Promise<boolean> {
     return true
   }
 }

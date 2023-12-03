@@ -5,7 +5,7 @@ import { mockUpdateUserRequest } from '../../../domain/mocks/user/index'
 import { UpdateUser } from '../../../domain/usecases/update-user'
 
 class UpdateUserRepositoryStub implements UpdateUserRepository {
-  async updateUser(id: number, user: UpdateUserRepository.Parameter): Promise<boolean> {
+  async updateUser(id: number | string, user: UpdateUserRepository.Parameter): Promise<boolean> {
     return true
   }
 }

@@ -7,7 +7,7 @@ export class DbUpdateUser implements UpdateUser {
     this.repository = repository
   }
 
-  async update(id: number, user: any): Promise<boolean> {
+  async update(id: number | string, user: any): Promise<boolean> {
     return await this.repository.updateUser(id, user)
   }
 }

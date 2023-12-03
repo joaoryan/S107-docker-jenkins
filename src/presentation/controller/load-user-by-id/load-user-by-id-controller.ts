@@ -5,18 +5,14 @@ import { Controller, HttpRequest, HttpResponse, Validation } from '../../protoco
 
 export class LoadUserByIdController implements Controller {
   private readonly loadUserById: LoadUserById
-  private readonly validation: Validation
 
-  constructor(loadUserById: LoadUserById, validation: Validation) {
+  constructor(loadUserById: LoadUserById) {
     this.loadUserById = loadUserById
-    this.validation = validation
   }
 
   async handle(httpRequest: HttpRequest<LoadUserById.Request>): Promise<HttpResponse<LoadUserById.Response>> {
     try {
-      const validationError = this.validation.validate(httpRequest.params)
-      if (validationError) return badRequest(validationError)
-      const response = await this.loadUserById.load(httpRequest.params.id)
+      const response = await this.loadUserById.load()
       if (!response) return noContent()
       return ok(response)
     } catch (error) {

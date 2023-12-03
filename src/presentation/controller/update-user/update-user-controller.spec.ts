@@ -13,7 +13,7 @@ class ValidationStub implements Validation {
 }
 
 class DbUpdateUserStub implements UpdateUser {
-  async update(id: number, user: UpdateUserModel): Promise<boolean> {
+  async update(id: number | string, user: UpdateUserModel): Promise<boolean> {
     return true
   }
 }

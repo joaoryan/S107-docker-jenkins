@@ -6,7 +6,7 @@ import { makeUpdateUserController } from '../factories/controllers/update-user/u
 import { makeDeleteUserController } from '../factories/controllers/delete-user/delete-user-controller-factory'
 
 export default (router: Router) => {
-  router.get('/user/:id', adptRoute(makeLoadUserByIdController()))
+  router.get('/user', adptRoute(makeLoadUserByIdController()))
   router.post('/user', adptRoute(makeAddUserController()))
   router.put('/user/:id', adptRoute(makeUpdateUserController()))
   router.delete('/user/:id', adptRoute(makeDeleteUserController()))

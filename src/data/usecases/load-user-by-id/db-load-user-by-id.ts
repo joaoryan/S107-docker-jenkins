@@ -8,7 +8,7 @@ export class DbLoadUserById implements LoadUserById {
     this.repository = repository
   }
 
-  async load(id: number): Promise<UserModel[] | null> {
-    return await this.repository.loadUserById(id)
+  async load(): Promise<UserModel[] | null> {
+    return await this.repository.loadUser()
   }
 }
