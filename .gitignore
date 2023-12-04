@@ -131,4 +131,4 @@ dist
 
 
 mongodb
-jenkins_compose
+jenkins_compose/jenkins_configuration

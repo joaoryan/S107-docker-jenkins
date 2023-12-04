@@ -28,13 +28,6 @@ pipeline {
         
         }
         
-        stage('Archive Artifacts') {
-            steps {
-                echo 'Archiving artifacts...'
-                archiveArtifacts 'dist/**'
-            }
-        }
-
         stage('Test') {
             steps {
                 echo 'Testing...'
@@ -42,8 +35,16 @@ pipeline {
                 sh "node --version"
                 sh "npm --version"
                 sh 'npm i --legacy-peer-deps'
-                sh 'npm run test'
+                sh 'npm run test:ci'
                 
+            }
+        }
+
+        stage('Archive Artifacts') {
+            steps {
+                echo 'Archiving artifacts...'
+                archiveArtifacts 'dist/**'
+                archiveArtifacts 'coverage/lcov-report/**'
             }
         }
 
