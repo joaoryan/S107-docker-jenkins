@@ -44,7 +44,7 @@ pipeline {
             steps {
                 echo 'Archiving artifacts...'
                 archiveArtifacts 'dist/**'
-                archiveArtifacts 'coverage/lcov-report/**'
+                archiveArtifacts 'coverage/lcov-report/index.html'
             }
         }
 
